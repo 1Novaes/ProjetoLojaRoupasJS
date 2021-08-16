@@ -1,0 +1,225 @@
+/*
+* Estilo Geral
+*/
+body {
+ color: #EEEE33;
+ font-size: 16px;
+ background-color: #DD7755;
+ font-family: "Stoke","verdana","liberation";
+}
+a:link { color:#FFFF00; text-decoration:none; }
+a:visited { color:#EEEE00; text-decoration:none; }
+/*
+* Estilo Se�?es
+*/
+header { display:block; }
+nav {
+ display:block;
+ font-weight: bold;
+ font-family: "Karla","verdana","liberation";
+ border-top: 2px solid;
+ padding-top: 4px;
+ border-bottom: 2px solid;
+ padding-bottom: 4px;
+ text-align: center;
+ margin: 2px;
+}
+section { display: block; }
+/*
+* Estilo Header
+*/
+.ender {
+ float: right;
+ text-align: right;
+ font-size: 15px;
+ line-height: 140%;
+}
+img.imgLogo {
+ padding-bottom: 4px;
+ margin-bottom: 4px;
+}
+/*
+* Estilo Nav
+*/
+nav a:link { color:#FF0000; }
+nav a:visited { color:#EE0000; }
+nav .menu {
+ margin: 3px auto;
+}
+nav .botao {
+ width: 100px;
+ font-size: 14px;
+ display: inline-block;
+ margin: 0px 4px 0px 4px;
+ padding: 5px 4px 5px 4px;
+ background-color: #FFFF00;
+}
+/***************************************
+* Estilo Se�?o Apresenta�?o
+*/
+div.apres {
+ text-align: center;
+ font-size: 18px;
+}
+/***************************************
+* Estilo Se�?o Moletons
+*/
+.listaMoletons {
+ color: #880000;
+ border: 2px solid #000055;
+ margin: 30px 10px 10px 10px;
+ padding: 10px 10px 10px 50px;
+ background-color: #EEDD99;
+ list-style-type: upper-roman;
+ line-height: 200%;
+}
+.listaMoletons ul {
+ color: #880000;
+ list-style-type: none;
+ line-height: 200%;
+}
+.listaMoletons img {
+ vertical-align: middle;
+}
+.preco {
+ color: #EE0000;
+}
+/***************************************
+* Estilo Se�?o Camisas
+*/
+.tabCamisa {
+ width: 96%;
+ margin: 0 auto;
+ color: #000066;
+ border-collapse: collapse;
+ font-family: "arial,ubuntu";
+ background-color: #EEDD99;
+}
+.tabCamisa td, .tabCamisa th {
+ border: 3px solid #000055;
+ padding: 6px 12px 6px 12px;
+}
+.tabCamisa .titulo {
+ color: #FFFF22;
+ font-size: 24px;
+ font-weight: bold;
+ text-align: center;
+ background-color: #447799;
+}
+.tabCamisa .linTH {
+ color: #FFFFFF;
+ text-align: center;
+ vertical-align: middle;
+ background-color: #777777;
+}
+.tabCamisa .colTH {
+ color: #FFFFFF;
+ text-align: left;
+ background-color: #999999;
+}
+.tabCamisa .preco {
+ color: #EE0000;
+ font-weight: bold;
+ vertical-align: middle;
+}
+/***************************************
+* Estilo Formul�rios
+*/
+form {
+ width: 580px;
+ color: #880000;
+ border: 2px solid #000055;
+ margin: 10px auto;
+ padding: 6px 6px 15px 6px;
+ background-color: #EEDD99;
+}
+/*** Elementos do Formul�rio ***/
+.listaCompras {
+ float: right;
+ width: 230px;
+ height: 230px;
+ margin-top: 8px;
+ margin-left: 10px;
+}
+.colLabSelProd {
+ width: 260px;
+ height: 40px;
+ float: left;
+}
+.colSelProd {
+ width: 160px;
+ float: right;
+}
+.linhaProdSel {
+ float: left;
+ width: 240px;
+ margin-bottom: 6px;
+}
+.elemEsq {
+ float: left;
+ display:block;
+}
+.elemDir {
+ float: right;
+ display:block;
+}
+.botoes {
+ text-align: right;
+ margin: 20px 10px 0px 10px;
+}
+/*** Fieldsets ***/
+.fsEsq {
+ float: left;
+ display: inline;
+ margin: 0px 0px 0px 0px;
+}
+.fsDir {
+ float: right;
+ display: inline;
+ margin: 0px 0px 0px 0px;
+}
+/*** Tamanho de Input ***/
+.inpGrande { width: 440px; }
+.inpMedio { width: 80px; }
+.inpNCC { width: 130px; }
+.inpTelef { width: 90px; }
+.inpEnder { width: 200px; height: 60px; }
+.numDD { width:30px; }
+.numQD { width:50px; }
+/***************************************
+* Estilo Formul�rio Dados
+*/
+.divLinha {
+ width: 550px;
+ margin-bottom: 6px;
+}
+.colPri {
+ float: left;
+ width: 90px;
+ display: block;
+}
+.colPriCompras {
+ float: left;
+ width: 86px;
+ display: block;
+}
+.colPriPag {
+ float: left;
+ width: 250px;
+ display: block;
+}
+.logoripping{
+    width: 200px;
+    height: 200px;
+    border:3px solid;
+    padding: 12px;
+    background:white ;
+}
+.janela{
+    text-align: center;
+}
+.janela h1{
+    text-align: center;
+}
+
+

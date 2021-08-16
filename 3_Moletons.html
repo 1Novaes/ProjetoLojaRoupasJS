@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Malharia Lhama</title>
+		<base target="_blank" />
+		<link href='https://fonts.googleapis.com/css?family=Karla'
+		 rel='stylesheet'>
+		<link href='https://fonts.googleapis.com/css?family=Stoke'
+		 rel='stylesheet'>
+		<link href='https://fonts.googleapis.com/css?family=Raleway'
+		 rel='stylesheet'>
+		<link rel="stylesheet" type="text/css" href="css/Estiloc.css" />
+		
+
+		<script>
+			
+			function abrirjanela(p1,p2,p3){
+				janela = window.open("","","width=300,height=500");
+				janela.document.write("<html>"+
+				"<head>"+
+				"<meta charset='utf-8'>"+
+				"<title>"+p1+"</title>"+
+				"<link rel='stylesheet' type='text/css' href='css/Estiloc.css' />"+
+				"</head>"+
+
+				"<body>"+
+				"<div class='janela'>"+
+				"<h1>"+p1+"</h1>"+
+				"<img class='logoripping' src='imagens/"+p2+"'>"+
+				"<div>"+
+				"<p>Tamanhos:P/M/G/X/XG</p>"+
+				"<p>Preço: R$ "+p3+"</p>"+
+				"</div>"+
+				"<br>"+
+				"<br>"+
+				"<button onclick='window.close()'>Fechar</button>"+
+				"</div>"+
+				"</body>"+
+				"</html>");
+			}
+		</script>
+	</head>
+<body>
+	<header>
+		<address class="ender">
+		 Avenida Cuzco, 123<br/>
+		 Tel: (21) 91234-5678<br/>
+		 <a href="mailto:contato@malhama.com.br">
+		 contato@malhama.com.br</a>
+		 </address>
+		<img class="imgLogo" src="Imagens/Malhama_Topo.png"/><br/>
+	</header>
+	<nav>
+		<div class="menu">
+			<span class="botao"><a href="2_Malhama.html"> INICIAL </a></span>
+			<span class="botao">
+			 <a href="3_Moletons.html"> MOLETONS </a></span>
+			<span class="botao">
+			 <a href="4_Camisetas.html"> CAMISETAS </a></span>
+			<span class="botao">
+			 <a href="5_Compras.html"> COMPRAS </a></span>
+		</div>
+	</nav>
+	<section>
+		<h3>Moletons</h3>
+		<ol class="listaMoletons">
+			<li>Hering:
+				 <ul>
+					 <li>
+						 <img src="Imagens/CorCinza.png" onclick="abrirjanela('Hering(Cinza)','MolHering_Cinza.jpg','70,00')"/>
+						 - Cinza - P/M -
+						 <span class="preco">R$ 70,00</a>
+					 </li>
+					 <li>
+						 <img src="Imagens/CorPreto.png" onclick="abrirjanela('Hering(Preto)','MolHering_Preto.jpg','70,00')"/>
+						 - Preto - M/G/XG -
+						 <span class="preco">R$ 70,00</a>
+					 </li>
+				 </ul>
+			</li>
+			<li>Malwee:
+				 <ul>
+					 <li>
+						 <img src="Imagens/CorCinza.png" onclick="abrirjanela('Malwee(Cinza)','MolMalwee_Cinza.jpg','70,00')" />
+						 - Cinza - M/G/XG -
+						 <span class="preco">R$ 40,00</a>
+					 </li>
+				 </ul>
+			</li>
+			<li>Ripping:
+				 <ul>
+					 <li>
+						 <img src="Imagens/CorAzul.png" onclick="abrirjanela('Ripping(Azul)','MolRipping_Azul.jpg','70,00')" />
+						 - Azul - P/M/G -
+						 <span class="preco">R$ 90,00</a>
+					 </li>
+					 <li>
+						 <img src="Imagens/CorCinza.png" onclick="abrirjanela('Ripping(Cinza)','MolRipping_cinza.jpg','70,00')"  />
+						 - Cinza - PP/P/M/G/GG -
+						 <span class="preco">R$ 80,00</a>
+					 </li>
+					 <li>
+						 <img src="Imagens/CorPreto.png" onclick="abrirjanela('Ripping(Preto)','MolRipping_Preto.jpg','70,00')"/>
+						 - Preto - PP/P/M/G/GG -
+						 <span class="preco">R$ 80,00</a>
+					 </li>
+				 </ul>
+			</li>
+		</ol>
+	</section>
+</body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Malharia Lhama</title>
+		<base target="_blank" />
+		<link href='https://fonts.googleapis.com/css?family=Karla'
+		 rel='stylesheet'>
+		<link href='https://fonts.googleapis.com/css?family=Stoke'
+		 rel='stylesheet'>
+		<link href='https://fonts.googleapis.com/css?family=Raleway'
+		 rel='stylesheet'>
+		<link rel="stylesheet" type="text/css" href="css/Estiloc.css" />
+	</head>
+<body>
+	<header>
+		<address class="ender">
+		 Avenida Cuzco, 123<br/>
+		 Tel: (21) 91234-5678<br/>
+		 <a href="mailto:contato@malhama.com.br">
+		 contato@malhama.com.br</a>
+		 </address>
+		<img class="imgLogo" src="Imagens/Malhama_Topo.png"/><br/>
+	</header>
+	<nav>
+		<div class="menu">
+			<span class="botao"><a href="2_Malhama.html"> INICIAL </a></span>
+			<span class="botao">
+			 <a href="3_Moletons.html"> MOLETONS </a></span>
+			<span class="botao">
+			 <a href="4_Camisetas.html"> CAMISETAS </a></span>
+			<span class="botao">
+			 <a href="5_Compras.html"> COMPRAS </a></span>
+		</div>
+	</nav>
+	<section>
+		<form action="6_Dados.html" method="POST" id="formprod">
+			<fieldset>
+				<legend> Seleção de Produtose Lista de Compras&nbsp;</legend>
+				
+				<textarea class="listaCompras" name="listaPedidos" readonly></textarea>
+				
+				<fieldset>
+					<legend> Selecionado&nbsp;</legend>
+					<label class="colLabSelProd" >Produto:
+						<Select name="selProduto" class="colSelProd" onChange="selecProd(this);">
+							 <option>---</option>
+
+							 <optgroup label="Camisa">
+								 <option value="Dudalina">Dudalina</option>
+								 <option value="Hering">Hering</option>
+								 <option value="Marfinno">Marfinno</option>
+							 </optgroup>
+							 <optgroup label="Moletom">
+								 <option value="Hering">Hering</option>
+								 <option value="Malwee">Malwee</option>
+								 <option value="Ripping">Ripping</option>
+							 </optgroup>
+						</select> 
+					</label>
+					<label class="colLabSelProd" >Tamanho:
+						<Select name="selTamanho" class="colSelProd" onChange="selecTam(this);">
+							 <option>---</option>
+							 <option value="XP">Extra Pequena</option>
+							 <option value="P">Pequena</option>
+							 <option value="M">Media</option>
+							 <option value="G">Grande</option>
+							 <option value="XG">Extra Grande</option>
+							 <option value="XGG">Extra Extra Grande</option>
+						</select> 
+					</label>
+					<label class="colLabSelProd" >Cor:
+						<Select name="selCor" class="colSelProd" onChange="selecCor(this);">
+							 <option>---</option>
+							 <option value="Azul">Azul</option>
+							 <option value="Branco">Branco</option>
+							 <option value="Chumbo">Chumbo</option>
+							 <option value="Cinza">Cinza</option>
+							 <option value="Preto">Preto</option>
+							 <option value="Verde">Verde</option>
+						</select> 
+					</label>
+					<input class="linhaProdSel" type="text" name="TXTdesc" id="txtDesc" readonly />
+					<input class="elemEsq" type="button" value="Comprar" onClick="CompraItem(this.form);"/>
+					<label class="elemDir" for="TxtPreco">R$
+						<input type="text" name="TxtPreco" readonly
+						 class="inpMedio" id="TxtPreco" />
+					 </label>
+				</fieldset>
+				<label class="elemDir" for="TxtTotal"><br/>Total R$
+					<input type="text" name="TxtTotal" readonly value=0
+					 id="TxtTotal" class="inpMedio" />
+				 </label>
+			</fieldset>
+			<div class="botoes">
+				 <input type="submit" value="Continuar" />
+				 <input type="reset" value="Limpar" />
+			</div>
+		</form>
+	</section>
+	<script>
+		var prodSel, tamSel,corSel;
+
+		prodSel = tamSel = corSel = -1;
+
+		var tabTipos = [ "Camisa", "Moleton" ];
+		var tabMarcas = [ "Dudalina", "Hering", "Malwee","Marfinno", "Ripping" ];
+		var tabCores = [ "Azul", "Branco", "Chumbo", "Cinza", "Preto", "Verde" ];
+		var tabTamanhos = [ "XP", "P", "M", "G", "XG", "XXG" ];
+
+		var tabProdutos = [
+		[ 0, 0, [ 1 ], 			[ 1, 2, 3, 4 ], 	100],
+		[ 0, 1, [ 0, 2, 5 ],	[ 1, 2, 3, 4, 5 ], 	70],
+		[ 0, 3, [ 0, 1 ], 		[ 1, 2, 3, 4 ], 	30],
+		[ 1, 1, [ 3, 4 ], 		[ 1, 2, 3, 4 ], 	70],
+		[ 1, 2, [ 3 ], 			[ 2, 3, 4 ], 		40],
+		[ 1, 4, [ 0, 3, 4], 	[ 0, 1, 2, 3, 4], 	80] 
+		];
+
+		function selecProd(selec) {
+ 		var f = selec.form;
+ 		var nl = selec.selectedIndex - 1;
+		prodSel = nl;
+		f.txtDesc.value = "";
+ 		f.TxtPreco.value = "";
+ 		f.selTamanho.selectedIndex = -1;
+ 		f.selCor.selectedIndex = -1;
+		}
+		function selecTam(selec) {
+ 
+		tamSel = verificaCampo(selec, 3, "Tamanho");
+ 		mostraDesc(selec.form);
+		}
+
+		function selecCor(selec) {
+		corSel = verificaCampo(selec, 2, "Cor");
+		mostraDesc(selec.form);
+		}
+		function prodTem(p1,p2,p3){
+			var linha=tabProdutos[p1];
+			var carac=linha[p2];
+			 
+			 if(carac.indexOf(p3) != -1){
+				 return p3;
+
+			 }else{
+				 return -1;
+			 }
+
+		
+		}
+
+
+
+		
+		
+		
+		function verificaCampo(selec, campo, nome) {
+		 var ind = selec.selectedIndex - 1;
+		/* verifica se algum produto foi selecionado, emite mensagem e
+		* limpa o campo caso não tenha sido selecionado
+		*/
+			var f= document.forms[0];
+			if(f.selProduto.selectedIndex > 0 ){
+				var prdTem = prodTem(prodSel, campo, ind);
+				/* Se prodTem retornou -1 emite mensagem
+				* correspondente e limpa o campo
+				*/
+				if(prdTem!=-1){
+					return prdTem;
+				}else{
+					f.selTamanho.selectedIndex = 0;
+					f.selCor.selectedIndex = 0;
+					return -1;
+				}
+
+			}else{
+				f.selTamanho.selectedIndex = 0;
+				f.selCor.selectedIndex = 0;
+				return -1;
+			}
+		}
+		
+		function mostraDesc(f){
+			var indprod=f.selProduto.selectedIndex;
+			var indt;
+			var indm;
+			var preco;
+			if(f.selTamanho.selectedIndex > 0 && f.selCor.selectedIndex > 0){
+					if(indprod >=1 && indprod <= 3 ){
+						indt=0;
+					}else{
+						indt=1;
+						
+					}
+					indm=tabMarcas.indexOf(f.selProduto.value);
+					for (i = 0;i<tabProdutos.length;i++){
+						linha=tabProdutos[i];
+						if(linha[0]==indt && linha[1] == indm) {
+							preco=linha[4];
+						}
+					}
+					var tipo ="";
+					if(indt==0){
+						tipo = "camisa";
+
+					}else{
+						tipo="moleton";
+					}
+					var marca=f.selProduto.value;
+					var cor = f.selCor.value;
+					var tam = f.selTamanho.value;
+
+					f.TXTdesc.value= tipo + " " + marca+" "+tam+" "+cor;
+					f.TxtPreco.value= preco;
+
+
+			}
+
+		
+		
+		}
+		var tabProdutos = [
+		["&nbsp;", "Vazio", 0],
+		["P/M/G/GG","CamBasDudalina_Branca", 100],
+		["P/M/G/XG/XXG","CamBasHering_Azul", 70],
+		["P/M/G/XG/XXG","CamBasHering_Chumbo", 70],
+		["P/M/G/XG/XXG","CamBasHering_Verde", 70],
+		["P/M/G/GG","CamBasMarfinno_azul", 30],
+		["P/M/G/GG","CamBasMarfinno_branca", 30] ];
+
+		function compraItem()
+		{
+		var nl = f.selProduto.selectedIndex + 1;
+		var total = (f.TxtTotal.value > 0)
+		? parseFloat(f.TxtTotal.value) : 0;
+		f.listaPedidos.value += tabProdutos[nl][0] + "\n";
+		f.TxtTotal.value = total + tabProdutos[nl][2];
+		}
+		/*function compraItem(){*/
+
+		/*if(f.TxtPreco.value > 0 ){
+			f.TxtTotal.value = parseFloat(f.TxtPreco.value)+parseFloat(f.TxtTotal.value)
+		}*/
+		
+	
+
+
+		/*var total = (f.TxtTotal.value > 0) ?
+		parseFloat(f.TxtTotal.value) : 0;
+		var nl = f.selProduto.selectedIndex - 1;
+		var tp = tabProdutos[nl][0];
+		f.listaPedidos.value += tabTipos[tp] + " "
+		+ tabProdutos[nl][1] + "\n";
+		f.TxtTotal.value = total + tabProdutos[nl][2];*/
+		
+		
+		
+		
+		//}//
+	</script>
+</body>
+</html>
